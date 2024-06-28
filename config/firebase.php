@@ -12,7 +12,7 @@ return [
     'default' => env('FIREBASE_PROJECT', 'app'),
 
     'credentials' => [
-        'file' => env('FIREBASE_CREDENTIALS'),
+        'file' => storage_path('firebase-adminsdk.json'),
     ],
     'database' => [
         'url' => env('FIREBASE_DATABASE_URL'),
