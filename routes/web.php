@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeviceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard.index');
+})->name('dashboard');
+Route::get('/InsertDevice', function () {
+    return view('dashboard.insert_device');
+})->name('dashboard.insert_device');
+
+Route::get('/Device/{id}', [DeviceController::class, 'show'])->name('device.show');
