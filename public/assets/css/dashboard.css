@@ -1,0 +1,195 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    /* Adjust columns based on available space */
+    gap: 20px;
+    width: 100%;
+    /* max-width: 1200px; */
+    /* Maximum width of the grid */
+    box-sizing: border-box;
+}
+
+.grid-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    /* height: 500px; */
+    /* Set the card height to approximately 500px */
+    width: 100%;
+    /* Make sure the card takes up full width available within the grid column */
+}
+
+.grid-card:hover {
+    transform: translateY(-10px);
+}
+
+.grid-card img {
+    width: 100%;
+    height: 200px;
+    /* Adjust height as needed */
+    object-fit: cover;
+}
+
+.grid-card .content {
+    padding: 20px;
+}
+
+.grid-card .content h3 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.grid-card .content p {
+    margin: 0;
+    font-size: 1em;
+    color: #666;
+}
+
+.search_field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search_field input {
+    width: calc(100% - 220px);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: solid 2px rgb(238, 238, 238);
+    transition: all ease 0.3s;
+    font-size: 16px;
+    color: #505050;
+    font-weight: 300;
+    padding-left: 40px;
+
+}
+
+.search_field input:focus {
+    outline: solid 3px rgb(75, 198, 255);
+}
+
+.search_field .icon_s {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 25px;
+    color: #949494;
+}
+
+.search_field button {
+    width: 130px;
+    padding: 10px 20px 10px 5px;
+    margin-left: 20px;
+    cursor: pointer;
+    border: none;
+    outline: solid 2px rgb(75, 198, 255);
+    border-radius: 10px;
+    background-color: rgb(75, 198, 255);
+    color: white;
+    font-size: 16px;
+    transition: all ease 0.3s;
+    white-space: nowrap;
+    position: relative;
+}
+
+.search_field button .icon {
+    font-size: 20px;
+    position: absolute;
+    right: 5px;
+    top: 12px;
+}
+
+.search_field button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(75, 198, 255);
+}
+
+.card_row {
+    background-color: rgb(255, 255, 255);
+    width: calc(100% - 30px);
+    /* height: 50px; */
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    position: relative;
+}
+.error_line{
+    outline: solid 2px rgb(255, 37, 37);
+}
+
+.card_row .detail {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    color: #474747;
+    width: calc(100% - 100px);
+}
+.card_row .detail .name{
+    width: 25%;
+    min-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card_row .detail .location{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card_row .view_bt {
+    border: none;
+    outline: none;
+    background-color: rgb(75, 198, 255);
+    outline: solid 2px rgb(75, 198, 255);
+    color: white;
+    border-radius: 5px;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all ease 0.3s;
+    position: absolute;
+    right: 15px;
+}
+.card_row .view_bt:hover{
+    background-color: rgb(255, 255, 255);
+    outline: solid 2px rgb(75, 198, 255);
+    color:rgb(75, 198, 255);
+}
+
+
+
+@media only screen and (max-width: 700px) {
+    .body_content {
+        background-color: #eb050500;
+        box-shadow: none;
+    }
+
+    .search_field button span {
+        display: none;
+    }
+
+    .search_field button {
+        position: absolute;
+        width: 50px;
+        height: 45px;
+    }
+
+    .search_field button .icon {
+        font-size: 35px;
+        top: 5px;
+        right: 7px;
+    }
+
+    .search_field input {
+        width: calc(100% - 120px);
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+}
