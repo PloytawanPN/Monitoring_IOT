@@ -41,22 +41,22 @@
                 <div class="card_device">
                     <div class="device_row">
                         <label class="fixed_width">Device Name</label>:
-                        <label>{{isset($item['name']) ? $item['name'] : '-'}}</label>
+                        <label>{{ isset($item['name']) ? $item['name'] : '-' }}</label>
                     </div>
                     <div class="device_row">
                         <label class="fixed_width">Device Location</label>:
-                        <label>{{isset($item['location']) ? $item['location'] : '-'}}</label>
+                        <label>{{ isset($item['location']) ? $item['location'] : '-' }}</label>
                     </div>
                     <div class="device_row">
                         <label class="fixed_width">Device Detail</label>:
-                        <label>{{isset($item['detail']) ? $item['detail'] : '-'}}</label>
+                        <label>{{ isset($item['detail']) ? $item['detail'] : '-' }}</label>
                     </div>
                     <div class="bt_trash">
                         <i class='bx bx-trash icon' wire:click="deleteDevice({{ $index }})"></i>
                     </div>
                 </div>
             @endforeach
-            @if(count($device_list) == 0)
+            @if (count($device_list) == 0)
                 <div class="not_found">
                     <h1>Not Found Data</h1>
                 </div>
@@ -64,6 +64,7 @@
         </div>
     </div>
     <div>
+        <button wire:click='confirm_delete' id='bt_delete'>confirm</button>
 
         <script>
             window.addEventListener('swal:alert', event => {
@@ -79,7 +80,32 @@
                     }
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "/";
+                        /* window.location.href = "/"; */
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            window.addEventListener('DeleteAlert', event => {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('bt_delete').click();
+                        window.addEventListener('ConfirmDelete', event => {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your device has been deleted.",
+                                icon: "success"
+                            });
+                        });
                     }
                 });
             });

@@ -12,7 +12,7 @@ class InsertDevice extends Component
 {
     public $device_list = [];
     public $name, $location, $detail, $message;
-    public $firebase_data;
+    public $firebase_data,$del_item;
 
     public function loadData()
     {
@@ -38,8 +38,18 @@ class InsertDevice extends Component
     }
     public function deleteDevice($index)
     {
-        unset($this->device_list[$index]);
-        $this->device_list = array_values($this->device_list); // Re-index the array
+        $this->dispatch('DeleteAlert');
+        $this->del_item = $index;
+    }
+    public function confirm_delete()
+    {
+        try {
+            unset($this->device_list[$this->del_item]);
+            $this->device_list = array_values($this->device_list);
+            $this->dispatch('ConfirmDelete');
+        } catch (\Exception $e) {
+            dd('Error : '.$e);
+        }
     }
     public function add_device()
     {
@@ -50,7 +60,7 @@ class InsertDevice extends Component
                     'required',
                     function ($attribute, $value, $fail) {
                         $this->loadData();
-                        if (!(isset($this->firebase_data))) {
+                        if (!(isset ($this->firebase_data))) {
                             $fail('Not found device');
                         }
                     },
@@ -77,6 +87,7 @@ class InsertDevice extends Component
     public function save_device()
     {
         DB::table('device_list')->insert($this->device_list);
+        $this->device_list = [];
         $this->message = "Successfully save the data.";
         $this->dispatch('swal:alert', [
             'type' => 'success',
