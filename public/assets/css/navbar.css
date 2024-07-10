@@ -19,6 +19,14 @@ body {
     margin: 0;
     background: var(--background);
 }
+.link_menu{
+    text-decoration: none;
+    color: var(--navbar-dark-primary)
+
+}
+.link_menu:visited {
+    color: var(--navbar-dark-primary)
+}
 
 
 .contain {
@@ -226,7 +234,7 @@ body {
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 20px;
-    
+
 }
 
 .body_content.close {

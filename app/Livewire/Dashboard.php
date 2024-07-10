@@ -6,6 +6,11 @@ use Livewire\Component;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\Exception\FirebaseException;
 use Illuminate\Support\Facades\DB;
+
+/* use Bluerhinos\phpMQTT;
+use Exception;
+use Illuminate\Support\Facades\Log; */
+
 class Dashboard extends Component
 {
     public $data,$devices;
@@ -43,7 +48,7 @@ class Dashboard extends Component
         } catch (FirebaseException $e) {
             $this->data = 'Error: ' . $e->getMessage();
         }
-    } 
+    }
     public function updateData()
     {
         $this->loadData();

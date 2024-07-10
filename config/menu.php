@@ -5,6 +5,11 @@ return [
         'icon' => 'bx bx-home',
         'url' => ['/','InsertDevice'],
     ],
+    [
+        'name' => 'Setting',
+        'icon' => 'bx bx-cog',
+        'url' => ['/Setting'],
+    ]
     /* [
         'name' => 'Monitor',
         'icon' => 'bx bx-objects-vertical-bottom',
@@ -20,9 +25,5 @@ return [
         'icon' => 'bx bx-money-withdraw',
         'url' => '/#',
     ],
-    [
-        'name' => 'Config',
-        'icon' => 'bx bxl-gmail',
-        'url' => '/#',
-    ], */
+     */
 ];

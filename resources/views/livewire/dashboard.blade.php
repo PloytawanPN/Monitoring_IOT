@@ -4,6 +4,7 @@
         <input type="text" placeholder="Search...">
         <button wire:click="redirect_insert"><span>Insert Device</span><i class='bx bx-plus icon'></i></button>
     </div>
+    {{-- <button wire:click='sendMessage'>LED ON</button> --}}
     <div wire:poll.1s="updateData">
         @foreach ($devices as $item)
             <div class="card_row {{$data[$item->name]['ATS']['Volt1'] == 0 ? 'error_line':''}}" >

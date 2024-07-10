@@ -16,10 +16,12 @@
                 <hr>
             </div>
             @foreach (config('menu') as $menuitem)
-                <div class="nav_list {{ in_array($currentPath, $menuitem['url']) ? 'active' : '' }}">
-                    <i class='{{$menuitem['icon']}} icon'></i>
-                    <label>{{$menuitem['name']}}</label>
-                </div>
+                <a href="{{$menuitem['url'][0]}}" class="link_menu">
+                    <div class="nav_list {{ in_array($currentPath, $menuitem['url']) ? 'active' : '' }}">
+                        <i class='{{ $menuitem['icon'] }} icon'></i>
+                        <label>{{ $menuitem['name'] }}</label>
+                    </div>
+                </a>
             @endforeach
         </div>
         <div class="nav_footer">

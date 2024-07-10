@@ -20,5 +20,9 @@ Route::get('/', function () {
 Route::get('/InsertDevice', function () {
     return view('dashboard.insert_device');
 })->name('dashboard.insert_device');
-
 Route::get('/Device/{id}', [DeviceController::class, 'show'])->name('device.show');
+
+Route::get('/Setting', function () {
+    return view('setting.setting');
+})->name('setting');
+

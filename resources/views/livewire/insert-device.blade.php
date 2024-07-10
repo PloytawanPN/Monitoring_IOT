@@ -64,7 +64,7 @@
         </div>
     </div>
     <div>
-        <button wire:click='confirm_delete' id='bt_delete'>confirm</button>
+        <button wire:click='confirm_delete' id='bt_delete' style="display: none">confirm</button>
 
         <script>
             window.addEventListener('swal:alert', event => {
