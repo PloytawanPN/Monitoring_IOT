@@ -1,5 +1,12 @@
 <div style="margin-top: 7px;height: 100%;">
-
+    <div class="container" wire:loading>
+        <div class="bg_loading">
+            <div class="space">
+                <div class="loader"></div>
+                <label>Loading...</label>
+            </div>
+        </div>
+    </div>
     <div style="height: 100%;" class="screen_area">
         <div class="insert_field">
             <div>

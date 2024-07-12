@@ -78,6 +78,13 @@
     font-size: 25px;
     color: #949494;
 }
+.not_found{
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    color: rgb(223, 226, 228);
+    margin: -50px 0 0 -50px;
+  }
 
 .search_field button {
     width: 130px;
@@ -132,13 +139,47 @@
     width: calc(100% - 100px);
 }
 .card_row .detail .name{
-    width: 25%;
-    min-width: 150px;
+    width: 20%;
+    min-width: 100px;
+    margin-right: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.card_row .detail .status{
+    margin-right: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card_row .detail .status .red_status{
+    width: 50px;
+    height: 20px;
+    background-color: rgb(255, 64, 64);
+    position: absolute;
+    top: 22px;
+    border-radius: 5px;
+}
+.card_row .detail .status .green_status{
+    width: 50px;
+    height: 20px;
+    background-color: rgb(75, 255, 59);
+    position: absolute;
+    top: 22px;
+    border-radius: 5px;
+}
+.card_row .detail .status .yellow_status{
+    width: 50px;
+    height: 20px;
+    background-color: rgb(255, 203, 59);
+    position: absolute;
+    top: 22px;
+    border-radius: 5px;
+}
 .card_row .detail .location{
+    width: 25%;
+    min-width: 100px;
+    margin-right: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -167,10 +208,17 @@
 
 
 @media only screen and (max-width: 700px) {
-
     .search_field button span {
         display: none;
     }
+    .not_found{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: rgb(223, 226, 228);
+        margin: -50px 0 0 -50px;
+      }
+    
 
     .search_field button {
         position: absolute;

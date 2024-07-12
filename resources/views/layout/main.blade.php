@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/navbar.css') }}">
     <link href="{{ asset('assets/uicons-brands/css/uicons-brands.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/boxicons-2.1.4/css/boxicons.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/Loading.css') }}">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('style')
     @yield('title')

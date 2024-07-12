@@ -1,0 +1,87 @@
+.container {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg_loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    /* outline: 3px solid rgb(114, 75, 255); */
+    border-radius: 5px;
+    color: rgb(114, 75, 255);
+    
+}
+.bg_loading .space{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.bg_loading .space label{
+    position: absolute;
+    top: 60px;
+    color: #6ceeff;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-bottom: 8px;
+    background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
+    animation: l2 2s linear infinite;
+  }
+  .loader:before {
+    content:"Loading..."
+  }
+  @keyframes l2 {to{background-size: 100% 3px}}
+
+
+@keyframes l4 {
+    50% {
+        width: 60px;
+        height: 60px;
+        transform: rotate(180deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+
+
+@keyframes l5 {
+    0% {
+        box-shadow: 20px 0 #000, -20px 0 #0002;
+        background: #000
+    }
+
+    33% {
+        box-shadow: 20px 0 #000, -20px 0 #0002;
+        background: #0002
+    }
+
+    66% {
+        box-shadow: 20px 0 #0002, -20px 0 #000;
+        background: #0002
+    }
+
+    100% {
+        box-shadow: 20px 0 #0002, -20px 0 #000;
+        background: #000
+    }
+}

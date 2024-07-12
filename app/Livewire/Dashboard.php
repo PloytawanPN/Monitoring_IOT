@@ -13,17 +13,20 @@ use Illuminate\Support\Facades\Log; */
 
 class Dashboard extends Component
 {
-    public $data,$devices;
+    public $data, $devices, $search;
 
-    public function view($id){
-        return redirect('Device/'.$id);
+
+    public function view($id)
+    {
+        return redirect('Device/' . $id);
     }
 
     public function mount()
     {
         $this->loadData();
     }
-    public function redirect_insert(){
+    public function redirect_insert()
+    {
         return redirect('/InsertDevice');
     }
 
@@ -45,6 +48,7 @@ class Dashboard extends Component
             $reference = $database->getReference('/');
             $snapshot = $reference->getSnapshot();
             $this->data = $snapshot->getValue();
+            //dd($this->data);
         } catch (FirebaseException $e) {
             $this->data = 'Error: ' . $e->getMessage();
         }
@@ -55,7 +59,14 @@ class Dashboard extends Component
     }
     public function render()
     {
-        $this->devices=DB::table('device_list')->where('status',1)->get();
+        $this->devices = DB::table('device_list')
+            ->where(function ($query) {
+                if ($this->search) {
+                    $query->where('name','LIKE', '%'.$this->search.'%');
+                }
+            })
+            ->where('status', 1)
+            ->get();
         return view('livewire.dashboard');
     }
 }
