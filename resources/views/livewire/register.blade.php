@@ -16,7 +16,8 @@
                     <div class="card">
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
                             <a href="index.html">
-                                <span><img src="{{ asset('assets/images/logo.png') }}" alt="" height="18"></span>
+                                <span><img src="{{ asset('assets/images/logo.png') }}" alt=""
+                                        height="18"></span>
                             </a>
                         </div>
 
@@ -32,15 +33,25 @@
 
                                 <div class="form-group">
                                     <label for="fullname">Full Name</label>
-                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your name"
-                                        wire:model="fullname" required>
+                                    <input class="form-control" type="text" id="fullname"
+                                        placeholder="Enter your name" wire:model="fullname" required>
                                 </div>
+
+
+
 
                                 <div class="form-group">
                                     <label for="branch">ฺBranch</label>
-                                    <input class="form-control" type="text" id="branch" required wire:model="branch"
-                                        placeholder="Enter your branch">
+                                    <select class="form-control" id="example-select" id="branch" required
+                                        wire:model="branch">
+                                        <option value='' selected>Please select branch</option>
+                                        @foreach ($branch_list as $item)
+                                            <option value='{{$item->id}}'>{{$item->branch_name}}</option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
+
 
                                 <div class="form-group">
                                     <label for="emailaddress">Email Address</label>
@@ -62,7 +73,8 @@
                                 </div>
 
                                 <div style="margin-top: 40px;" class="form-group mb-0 text-center">
-                                    <button class="btn btn-primary" type="button" wire:click="submit"> Sign Up </button>
+                                    <button class="btn btn-primary" type="button" wire:click="submit"> Sign Up
+                                    </button>
                                 </div>
 
                             </form>

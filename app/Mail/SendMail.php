@@ -12,13 +12,14 @@ use Illuminate\Queue\SerializesModels;
 class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
+    public $token;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($token)
     {
-
+        $this->token = $token;
     }
 
     /**
@@ -38,6 +39,9 @@ class SendMail extends Mailable
     {
         return new Content(
             view: 'register.email_verified',
+            with: [
+                'token' => $this->token,
+            ],
         );
     }
 

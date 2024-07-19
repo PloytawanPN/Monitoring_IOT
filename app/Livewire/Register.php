@@ -8,24 +8,27 @@ use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Carbon\Carbon;
 
 class Register extends Component
 {
     public $fullname, $email, $branch, $password;
 
+    public $branch_list;
+
     public function validate_data(){
         $this->validate([
             'fullname' => [
                 'required',
-                'regex:/\s+/', 
-                'regex:/^[A-Za-z\s]+$/', 
+                'regex:/\s+/',
+                'regex:/^[A-Za-z\s]+$/',
             ],
             'branch' => 'required',
             'email' => [
                 'required',
                 'email',
-                'email', 
+                'email',
                 function ($attribute, $value, $fail) {
                     $check_email = DB::table('users')->where('email', $this->email)->whereIn('status', [0,1,2])->count();
                     if ($check_email!=0) {
@@ -36,8 +39,8 @@ class Register extends Component
             'password' => [
                 'required',
                 'min:8',
-                'regex:/[0-9]/',     
-                'regex:/[a-zA-Z]/', 
+                'regex:/[0-9]/',
+                'regex:/[a-zA-Z]/',
             ],
         ], [
             'fullname.regex' => 'Please check your full name.',
@@ -54,19 +57,20 @@ class Register extends Component
 
     public function submit()
     {
+        $token = Str::random(32);
         try {
             $this->validate_data();
             DB::table('users')->insert([
                 'name' => $this->fullname,
                 'email' => $this->email,
                 'password' => Hash::make($this->password),
-                'remember_token' => 0,
-                'branch' => $this->branch,
+                'remember_token' => $token,
+                'branch_id' => $this->branch,
                 'status' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
-            Mail::to($this->email)->send(new SendMail());
+            Mail::to($this->email)->send(new SendMail($token));
             $this->dispatch('Success:Alert');
         } catch (Exception $e) {
             $this->dispatch('Error:Alert', ['message' => $e->getMessage()]);
@@ -75,6 +79,7 @@ class Register extends Component
     }
     public function render()
     {
+        $this->branch_list=DB::table('branches')->where('status',1)->get();
         return view('livewire.register');
     }
 }
