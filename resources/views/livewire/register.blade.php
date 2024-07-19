@@ -1,13 +1,22 @@
 <div>
+
+    <div wire:loading.delay wire:target="submit" id="loadingOverlay" class="loading-overlay">
+        <div class="container_load">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+
     <div class="account-pages mt-5 mb-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="card">
-                        <!-- Logo-->
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
                             <a href="index.html">
-                                <span><img src="assets/images/logo.png" alt="" height="18"></span>
+                                <span><img src="{{ asset('assets/images/logo.png') }}" alt="" height="18"></span>
                             </a>
                         </div>
 
@@ -24,26 +33,26 @@
                                 <div class="form-group">
                                     <label for="fullname">Full Name</label>
                                     <input class="form-control" type="text" id="fullname" placeholder="Enter your name"
-                                        required>
+                                        wire:model="fullname" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="branch">ฺBranch</label>
-                                    <input class="form-control" type="text" id="branch" required
+                                    <input class="form-control" type="text" id="branch" required wire:model="branch"
                                         placeholder="Enter your branch">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="emailaddress">Email Address</label>
                                     <input class="form-control" type="text" id="emailaddress" required
-                                        placeholder="Enter your email">
+                                        wire:model="email" placeholder="Enter your email">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <div class="input-group input-group-merge">
                                         <input type="password" id="password" class="form-control"
-                                            placeholder="Enter your password">
+                                            placeholder="Enter your password" wire:model="password">
                                         <div class="input-group-append" data-password="false">
                                             <div class="input-group-text">
                                                 <span class="password-eye"></span>
@@ -72,3 +81,27 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('Error:Alert', event => {
+            console.log(event);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: event.detail[0].message,
+            });
+        });
+
+        window.addEventListener('Success:Alert', event => {
+            console.log(event);
+            Swal.fire({
+                icon: "success",
+                title: "Succeed",
+                text: 'Registration successful, please confirm your email.',
+                allowOutsideClick: false,
+                preConfirm: () => {
+                    window.location.href = '/signin';
+                }
+            });
+        });
+    </script>
+</div>

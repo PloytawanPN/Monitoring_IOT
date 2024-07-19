@@ -94,6 +94,13 @@ return [
 
     ],
 
+    'user_status' => [
+        0 => ['status' => 0,'name' => 'Waiting'],
+        1 => ['status' => 1,'name' => 'Normal'],
+        2 => ['status' => 2,'name' => 'Confirm Email'],
+        3 => ['status' => 3,'name' => 'Reject'],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Cache Key Prefix
