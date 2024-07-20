@@ -22,7 +22,7 @@ class DeviceShow extends Component
         $this->loadData();
     }
     public function ToggleSwitch($index)
-    {
+    { 
         $server =  $this->server_info->server_name;
         $port = $this->server_info->port_number;
         $username = $this->server_info->username;

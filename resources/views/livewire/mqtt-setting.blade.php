@@ -1,32 +1,77 @@
 <div>
-    <div class="hader_setting">
-        <label class="main_h">Settings</label>
-        <label class="content">Manage your system setting and preferences</label>
-        <hr>
+    <div wire:loading.delay wire:target='CheckConnection,SaveConfig,confirm_to_save' id="loadingOverlay" class="loading-overlay">
+        <div class="container_load">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
     </div>
-    <div class="mqtt">
-        <label class="main_h">MQTT Connection</label>
-        <lable class="content">Edit your mqtt broker connection information</lable>
-        <table>
-            <tr>
-                <td>MQTT Server</td>
-                <td><input placeholder="e.g. 192.168.10.20" type="text" wire:model.lazy='server'></td>
-            </tr>
-            <tr>
-                <td>Port</td>
-                <td><input placeholder="e.g. 1883" type="text" wire:model.lazy='port'></td>
-            </tr>
-            <tr>
-                <td>Username</td>
-                <td><input placeholder="e.g. mqttuser1" type="text" wire:model.lazy='username'></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input placeholder="e.g. 123456" type="password" wire:model.lazy='password'></td>
-            </tr>
-        </table>
-        <button wire:click='CheckConnection'>Test Connection</button>
-        <button wire:click='SaveConfig'>Save Setting</button>
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Setting: MQTT</h4>
+                        <p class="text-muted font-14">
+                            Edit your MQTT broker connection information
+                        </p>
+
+                        <div class="tab-content">
+                            <div class="tab-pane show active" id="datepicker-preview">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-3">
+                                            <label>MQTT Server</label>
+                                            <input placeholder="e.g. 192.168.10.20" class="form-control" type="text"
+                                                wire:model.lazy='server'>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-3">
+                                            <label>Port</label>
+                                            <input placeholder="e.g. 1883" class="form-control" type="text"
+                                                wire:model.lazy='port'>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            <input placeholder="e.g. mqttuser1" class="form-control" type="text"
+                                                wire:model.lazy='username'>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input placeholder="e.g. 123456" class="form-control" type="password"
+                                                wire:model.lazy='password'>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 20px">
+                                    <div class="col-12 text-center">
+                                        <button type="button" class="btn btn-outline-info" style="margin-right: 20px"
+                                            wire:click='CheckConnection'>Test Connection</button>
+                                        <button type="button" class="btn btn-outline-success"
+                                            wire:click='SaveConfig'>Save Setting</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
     </div>
     <button id='bt_ConfirmSave' style="display: none" wire:click='confirm_to_save'></button>
     <script>

@@ -1,5 +1,5 @@
 <div>
-<div class="account-pages mt-5 mb-5">
+    <div class="account-pages mt-5 mb-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
@@ -7,7 +7,8 @@
 
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
                             <a href="index.html">
-                                <span><img src="{{ asset('assets/images/logo.png') }}" alt="" height="18"></span>
+                                <span><img src="{{ asset('assets/images/logo.png') }}" alt=""
+                                        height="18"></span>
                             </a>
                         </div>
 
@@ -22,9 +23,9 @@
                             <form action="#">
 
                                 <div class="form-group">
-                                    <label for="emailaddress">Username</label>
-                                    <input class="form-control" type="email" id="emailaddress" required="" wire:model="username"
-                                        placeholder="Enter your email">
+                                    <label for="emailaddress">Email Address</label>
+                                    <input class="form-control" type="email" id="emailaddress" required=""
+                                        wire:model="username" placeholder="Enter your email">
                                 </div>
 
                                 <div class="form-group">
@@ -60,7 +61,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="pages-register.html"
+                            <p class="text-muted">Don't have an account? <a href="/signup"
                                     class="text-muted ml-1"><b>Sign Up</b></a></p>
                         </div>
                     </div>
@@ -68,4 +69,28 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('Error:login', event => {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Account is not logged in or awaiting approval.",
+            });
+        });
+
+        window.addEventListener('Success:login', event => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Login Successful',
+                text: 'You have successfully logged in!',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                willClose: () => {
+                    window.location.href = '/dashboard';
+                }
+            });
+        });
+    </script>
 </div>

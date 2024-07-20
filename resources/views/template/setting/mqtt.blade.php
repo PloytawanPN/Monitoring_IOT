@@ -1,6 +1,8 @@
 @extends('template.layout.main')
+
 @section('style')
     <style>
+
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -23,15 +25,13 @@
     </style>
 @endsection
 
-
 @section('title')
-<title>Insert</title>
+    <title>MQTT</title>
 @endsection
 
 @section('content')
-<livewire:insert-device :id="$id"/>
+    <livewire:mqtt-setting />
 @endsection
+
 @section('scripts')
-<script>
-</script>
 @endsection

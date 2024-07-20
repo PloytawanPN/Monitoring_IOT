@@ -15,10 +15,13 @@ class Dashboard extends Component
 {
     public $data, $devices, $search;
 
-
-    public function view($id)
-    {
-        return redirect('Device/' . $id);
+    public function delete($id){
+        try {
+            DB::table('device_list')->where('id', $id)->delete();
+            $this->dispatch('success:message');
+        } catch (\Throwable $th) {
+            $this->dispatch('error:message');
+        }
     }
 
     public function mount()
@@ -62,7 +65,9 @@ class Dashboard extends Component
         $this->devices = DB::table('device_list')
             ->where(function ($query) {
                 if ($this->search) {
-                    $query->where('name','LIKE', '%'.$this->search.'%');
+                    $query->where('name','LIKE', '%'.$this->search.'%')
+                    ->where('detail','LIKE', '%'.$this->search.'%')
+                    ->orwhere('location','LIKE', '%'.$this->search.'%');
                 }
             })
             ->where('status', 1)

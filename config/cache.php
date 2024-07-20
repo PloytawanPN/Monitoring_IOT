@@ -95,10 +95,10 @@ return [
     ],
 
     'user_status' => [
-        0 => ['status' => 0,'name' => 'Waiting'],
-        1 => ['status' => 1,'name' => 'Normal'],
-        2 => ['status' => 2,'name' => 'Confirm Email'],
-        3 => ['status' => 3,'name' => 'Reject'],
+        0 => ['status' => 0,'name' => 'Waiting for email confirm'],
+        1 => ['status' => 1,'name' => 'Active account'],
+        2 => ['status' => 2,'name' => 'Email confirm'],
+        3 => ['status' => 3,'name' => 'Reject account'],
     ],
 
     /*

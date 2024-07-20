@@ -56,7 +56,7 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p class="text-muted">Back to <a href="pages-login.html" class="text-muted ml-1"><b>Log In</b></a></p>
+                                <p class="text-muted">Back to <a href="/signin" class="text-muted ml-1"><b>Log In</b></a></p>
                             </div>
                         </div>
                     </div>

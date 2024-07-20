@@ -1,5 +1,7 @@
 @extends('template.layout.main')
 @section('style')
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/device.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         .loading-overlay {
             position: fixed;
@@ -25,11 +27,11 @@
 
 
 @section('title')
-<title>Insert</title>
+<title>Device</title>
 @endsection
 
 @section('content')
-<livewire:insert-device :id="$id"/>
+<livewire:view-device :id="$id"/>
 @endsection
 @section('scripts')
 <script>

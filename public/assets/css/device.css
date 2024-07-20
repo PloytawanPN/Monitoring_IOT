@@ -1,45 +1,51 @@
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
 .blue_header {
-    background-color: rgb(62, 114, 247);
+    background-color: #727cf5;
     color: white;
     font-size: 20px;
     width: 100px;
     height: 60px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
 }
 
 .green_status {
-    background-color: rgb(82, 208, 75);
+    background-color: #0acf97;
     color: white;
     font-size: 20px;
     width: 100px;
     height: 60px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
 }
 
 .white_status {
     background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    color: rgb(82, 82, 82);
     font-size: 20px;
     width: 100px;
     height: 60px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
-    outline: 2px rgb(96, 96, 96) solid;
+    outline: 2px rgb(207, 207, 207) solid;
 }
 
 .green {
-    background-color: rgb(82, 208, 75);
+    background-color: #0acf97;
     outline: none;
     color: white;
 }
 
 .red {
-    background-color: rgb(255, 58, 58);
+    background-color: #fa5c7c;
 }
 
 .bt_class {
@@ -101,11 +107,146 @@
     transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
 }
 
+.button-container {
+    display: flex; /* Use Flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center horizontally */
+    position: relative;
+}
+
+.button-row {
+    display: flex; /* Use Flexbox for row layout */
+    gap: 100px; /* Space between buttons */
+    margin-bottom: 10px; /* Space between rows */
+}
+
+.container {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: center; /* Space out the divs evenly
+    margin: auto;
+    align-items: center; /* Center items vertically */
+    gap: 50px; /* Space between divs */
+}
+
+.connecting-line {
+    position: absolute;
+    width: 2px; /* Thickness of the line */
+    background-color: #000000; /* Color of the line */
+    top: 50px; /* Position it at the middle of the button height */
+    height: calc(100% - 75px); /* Height of the line, adjusted for button size and margins */
+    z-index: 10; /* Send the line behind the buttons */
+}
+.connecting-line-setup{
+    position: absolute;
+    width: calc(100% - 150px); /* Thickness of the line */
+    background-color: #000000; /* Color of the line */
+    bottom: 25px; /* Position it at the middle of the button height */
+    height: 2px; /* Height of the line, adjusted for button size and margins */
+    z-index: 10; /* Send the line behind the buttons */
+}
+
+
+.circular-button {
+    width: 50px; /* Diameter of the button */
+    height: 50px; /* Diameter of the button */
+    border-radius: 50%; /* Make the button circular */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Icon color */
+    border: none; /* Remove border */
+    display: flex; /* Center the icon */
+    align-items: center; /* Center the icon vertically */
+    justify-content: center; /* Center the icon horizontally */
+    font-size: 24px; /* Size of the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+.circular-button.text{
+    font-size: 13px;
+}
+
+.circular-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+.circular-button:focus {
+    outline: none; /* Remove focus outline */
+}
+.black_bt{
+    background-color: #343a40;
+}
+.black_bt:hover{
+    background-color: #191d20;
+}
+.red_bt{
+    background-color: #fa5c7c;
+}
+.red_bt:hover{
+    background-color: #f52d55;
+}
+.green_bt{
+    background-color: #0acf97;
+}
+.green_bt:hover{
+    background-color: #09c577;
+}
+.white_bt{
+    background-color: #ffffff;
+    color: #191d20;
+}
+.white_bt:hover{
+    background-color: #eeeeee;
+}
+
+
+.swal-popup-green  {
+    background: #09c577;
+    box-shadow: none;
+    width: fit-content;
+}
+
+.swal-popup-green .swal2-icon {
+    display: none;
+}
+
+.swal-popup-green .swal2-html-container {
+    color: #ffffff;
+}
+
 @media (min-width: 768px) {
     .button-82-front {
         font-size: 1.25rem;
         padding: 12px 42px;
     }
+
+}
+
+@media (max-width: 768px) {
+    .blue_header {
+        font-size: 13px;
+        max-height: 20px;
+        text-wrap: nowrap;
+    }
+
+    .green_status {
+        font-size: 13px;
+        max-height: 20px;
+        text-wrap: nowrap;
+    }
+
+    .white_status {
+        font-size: 13px;
+        max-height: 20px;
+        text-wrap: nowrap;
+    }
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 5px;
+    }
+    .container {
+        gap: 20px; /* Space between divs */
+    }
+
 }
 
 .button-82-pushable:hover {
@@ -120,9 +261,11 @@
 
 .button-82-pushable:active .button-82-front {
     transform: translateY(-2px);
-    background: hsl(135, 91%, 33%); /* สีเขียนเมื่อกด */
+    background: hsl(135, 91%, 33%);
+    /* สีเขียนเมื่อกด */
     transition: transform 34ms, background 34ms;
 }
+
 .button-82-pushable:active .button-82-edge {
     position: absolute;
     top: 0;
@@ -130,7 +273,7 @@
     width: 100%;
     height: 100%;
     border-radius: 12px;
-     background: linear-gradient(to left,
+    background: linear-gradient(to left,
             hsl(120, 100%, 14%) 0%,
             hsl(120, 100%, 17%) 8%,
             hsl(120, 100%, 17%) 92%,

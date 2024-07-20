@@ -68,17 +68,14 @@
 
                 if (button && targetButton) {
                     button.addEventListener('mousedown', function() {
-                        // Trigger click on the corresponding target button
                         targetButton.click();
                     });
 
                     button.addEventListener('mouseup', function() {
-                        // Trigger click on the corresponding target button
                         targetButton.click();
                     });
 
                     button.addEventListener('mouseleave', function() {
-                        // Clear any timers associated with this button
                         clearTimeout(timer);
                     });
                 }

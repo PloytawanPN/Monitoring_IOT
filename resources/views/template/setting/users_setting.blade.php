@@ -1,6 +1,8 @@
 @extends('template.layout.main')
+
 @section('style')
     <style>
+
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -23,15 +25,14 @@
     </style>
 @endsection
 
-
 @section('title')
-<title>Insert</title>
+    <title>Datatables | Hyper - Responsive Bootstrap 4 Admin Dashboard</title>
 @endsection
-
+{{-- @section('style')
+@endsection --}}
 @section('content')
-<livewire:insert-device :id="$id"/>
+    <livewire:user-setting />
 @endsection
-@section('scripts')
-<script>
-</script>
-@endsection
+{{-- @section('script')
+
+@endsection --}}

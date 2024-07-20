@@ -1,12 +1,4 @@
-{{-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Token</title>
-</head>
-<body>
-    <a href="http://127.0.0.1:8000/VerifieldEmail/{{ $token }}">Verify Email</a>
-</body>
-</html> --}}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,7 +79,7 @@
             <div class="body">
                 <p>Hi there,</p>
                 <p>Thank you for registering with our service. Please verify your email address by clicking the link below:</p>
-                <a style="color: white" href="{{ url('/VerifieldEmail/' . $token) }}" class="button">Verify Email</a>
+                <a style="color: white" href="{{ url('/verifieldEmail/' . $token) }}" class="button">Verify Email</a>
             </div>
         </div>
     </div>
