@@ -21,7 +21,7 @@ class CheckToken
 
         try {
             $token = Session::get('_token');
-            $user_token = DB::table('users')->where('remember_token', $token)->count();
+            $user_token = DB::table('users')->where('remember_token', $token)->where('status',1)->count();
             if ($user_token > 0) {
                 if ($request->is('signin')) {
                     return redirect('/dashboard');

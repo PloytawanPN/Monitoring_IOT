@@ -9,11 +9,12 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\MqttController;
 use App\Http\Controllers\DashboardController;
 
+Route::get('/verifieldEmail/{token}', [VerifieldEmailController::class, 'index']);
+
 Route::middleware('checktoken')->group(function () {
 
     Route::get('/signin', [LoginController::class, 'index'])->name('signin');
     Route::get('/signup', [RegisterController::class, 'index']);
-    Route::get('/verifieldEmail/{token}', [VerifieldEmailController::class, 'index']);
 
     Route::get('/InsertDevice', [DashboardController::class, 'insert_device'])->name('insert_device');
 
