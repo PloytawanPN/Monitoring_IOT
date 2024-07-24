@@ -101,6 +101,13 @@ return [
         3 => ['status' => 3,'name' => 'Reject account'],
     ],
 
+    'user_role' => [
+        0 => ['role' => 0,'name' => 'Normal User'],
+        1 => ['role' => 1,'name' => 'Normal Staff'],
+        2 => ['role' => 2,'name' => 'Normal Admin'],
+        3 => ['role' => 3,'name' => 'Super Admin'],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Cache Key Prefix

@@ -21,8 +21,8 @@
                     <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image" class="rounded-circle">
                 </span>
                 <span>
-                    <span class="account-user-name">Dominic Keller</span>
-                    <span class="account-position">Founder</span>
+                    <span class="account-user-name">{{$user->name}}</span>
+                    <span class="account-position">{{config('cache.user_role.'.$user->role.'.name')}}</span>
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
@@ -32,7 +32,6 @@
                 </a>
             </div>
         </li>
-
     </ul>
     <button class="button-menu-mobile open-left disable-btn">
         <i class="mdi mdi-menu"></i>

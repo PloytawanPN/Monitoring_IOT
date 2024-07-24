@@ -67,6 +67,7 @@ class Register extends Component
                 'remember_token' => $token,
                 'branch_id' => $this->branch,
                 'status' => 0,
+                'role' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
