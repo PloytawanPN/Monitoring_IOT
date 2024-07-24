@@ -18,6 +18,7 @@ class Login extends Component
         ]);
         $user = DB::table('users')
             ->where('email', $this->username)
+            ->where('status', 1)
             ->first();
 
         try {
