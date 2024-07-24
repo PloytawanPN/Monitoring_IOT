@@ -25,6 +25,27 @@
             color: #ffffff;
         }
     </style>
+    <style>
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container_load {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
     @livewireStyles
 </head>
 
@@ -137,42 +158,7 @@
         <div class="content-page">
             <div class="content">
                 <!-- Topbar Start -->
-                <div class="navbar-custom">
-                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
-
-                        <li class="notification-list">
-                            <a class="nav-link right-bar-toggle" href="javascript: void(0);">
-                                <i class="dripicons-gear noti-icon"></i>
-                            </a>
-                        </li>
-
-                        <li class="dropdown notification-list">
-                            <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown"
-                                href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <span class="account-user-avatar">
-                                    <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image"
-                                        class="rounded-circle">
-                                </span>
-                                <span>
-                                    <span class="account-user-name">Dominic Keller</span>
-                                    <span class="account-position">Founder</span>
-                                </span>
-                            </a>
-                            <div
-                                class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-logout mr-1"></i>
-                                    <span>Logout</span>
-                                </a>
-
-                            </div>
-                        </li>
-
-                    </ul>
-                    <button class="button-menu-mobile open-left disable-btn">
-                        <i class="mdi mdi-menu"></i>
-                    </button>
-                </div>
+                <livewire:topbar />
                 <!-- end Topbar -->
                 <!-- Start Content-->
                 @yield('content')
@@ -189,12 +175,12 @@
                             </script> © MCI System
                         </div>
                         {{-- <div class="col-md-6">
-                                <div class="text-md-right footer-links d-none d-md-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div> --}}
+                            <div class="text-md-right footer-links d-none d-md-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
             </footer>
@@ -231,36 +217,33 @@
                 <h5 class="mt-4 d-none">Width</h5>
                 <hr class="mt-1 d-none" />
                 <div class="custom-control custom-switch mb-1">
-                    <input type="radio" class="custom-control-input d-none" name="width" value="fluid"
-                        id="fluid-check" checked />
+                    <input type="radio" class="custom-control-input d-none" name="width" value="fluid" id="fluid-check"
+                        checked />
                     <label class="custom-control-label" for="fluid-check">Fluid</label>
                 </div>
                 <div class="custom-control custom-switch mb-1 d-none">
-                    <input type="radio" class="custom-control-input" name="width" value="boxed"
-                        id="boxed-check" />
+                    <input type="radio" class="custom-control-input" name="width" value="boxed" id="boxed-check" />
                     <label class="custom-control-label" for="boxed-check">Boxed</label>
                 </div>
 
                 <h5 class="mt-4">Left Sidebar</h5>
                 <hr class="mt-1" />
                 <div class="custom-control custom-switch mb-1">
-                    <input type="radio" class="custom-control-input" name="theme" value="default"
-                        id="default-check" checked />
+                    <input type="radio" class="custom-control-input" name="theme" value="default" id="default-check"
+                        checked />
                     <label class="custom-control-label" for="default-check">Default</label>
                 </div>
                 <div class="custom-control custom-switch mb-1">
-                    <input type="radio" class="custom-control-input" name="theme" value="light"
-                        id="light-check" />
+                    <input type="radio" class="custom-control-input" name="theme" value="light" id="light-check" />
                     <label class="custom-control-label" for="light-check">Light</label>
                 </div>
                 <div class="custom-control custom-switch mb-3">
-                    <input type="radio" class="custom-control-input" name="theme" value="dark"
-                        id="dark-check" />
+                    <input type="radio" class="custom-control-input" name="theme" value="dark" id="dark-check" />
                     <label class="custom-control-label" for="dark-check">Dark</label>
                 </div>
                 <div class="custom-control custom-switch mb-1 d-none">
-                    <input type="radio" class="custom-control-input" name="compact" value="fixed"
-                        id="fixed-check" checked />
+                    <input type="radio" class="custom-control-input" name="compact" value="fixed" id="fixed-check"
+                        checked />
                     <label class="custom-control-label" for="fixed-check">Fixed</label>
                 </div>
                 <div class="custom-control custom-switch mb-1 d-none">
