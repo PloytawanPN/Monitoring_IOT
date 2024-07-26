@@ -80,7 +80,7 @@ class Register extends Component
     }
     public function render()
     {
-        $this->branch_list=DB::table('branches')->where('status',1)->get();
+        $this->branch_list=DB::table('branches')->where('status',1)->where('branch_name', '!=', 'Admin')->get();
         return view('livewire.register');
     }
 }

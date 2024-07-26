@@ -60,10 +60,14 @@
                                                     <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}
                                                     </td>
                                                     <td class="text-center">
+                                                        @php
+                                                            $encodedId = base64_encode($item->id);
+                                                        @endphp
+                                                        <a href="/setting/users/edit/{{$encodedId}}" type="button" class="btn btn-light"><i
+                                                                class="mdi mdi-pencil"></i></a>
                                                         <button type="button" class="btn btn-light"
                                                             onclick="remove({{ $item->id }})"><i
                                                                 class="mdi mdi-delete-outline"></i></button>
-
                                                         <button id="remove_{{ $item->id }}" class="d-none"
                                                             wire:click="remove({{ $item->id }})"></button>
                                                     </td>
@@ -82,6 +86,19 @@
             </div><!-- end col-->
         </div>
     </div>
+    @if(Session::has('alert:error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'User information not found!',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            });
+        </script>
+    @endif
     <script>
         function remove(itemId) {
             Swal.fire({

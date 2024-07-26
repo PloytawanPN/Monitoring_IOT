@@ -8,6 +8,7 @@ use App\Http\Controllers\VerifieldEmailController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\MqttController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BranchController;
 
 Route::get('/verifieldEmail/{token}', [VerifieldEmailController::class, 'index']);
 
@@ -26,7 +27,9 @@ Route::middleware('checktoken')->group(function () {
 
     Route::prefix('setting')->group(function () {
         Route::get('/users', [UsersController::class, 'setting'])->name('setting.users');
+        Route::get('/users/edit/{id}', [UsersController::class, 'edit_user'])->name('setting.edit_user');
         Route::get('/mqtt', [MqttController::class, 'mqtt'])->name('setting.mqtt');
+        Route::get('/branch', [BranchController::class, 'branch'])->name('setting.branch');
     });
 
 });

@@ -96,9 +96,9 @@ return [
 
     'user_status' => [
         0 => ['status' => 0,'name' => 'Waiting for email confirm'],
-        1 => ['status' => 1,'name' => 'Active account'],
         2 => ['status' => 2,'name' => 'Email confirm'],
         3 => ['status' => 3,'name' => 'Reject account'],
+        1 => ['status' => 1,'name' => 'Active account'],
     ],
 
     'user_role' => [
@@ -106,6 +106,12 @@ return [
         1 => ['role' => 1,'name' => 'Normal Staff'],
         2 => ['role' => 2,'name' => 'Normal Admin'],
         3 => ['role' => 3,'name' => 'Super Admin'],
+    ],
+
+    'branch_status' => [
+        0 => ['role' => 0,'name' => 'Reject'],
+        1 => ['role' => 1,'name' => 'Active'],
+        2 => ['role' => 2,'name' => 'Inactive'],
     ],
 
     /*

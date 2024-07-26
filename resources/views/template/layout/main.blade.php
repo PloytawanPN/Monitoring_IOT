@@ -76,7 +76,7 @@
                     <li class="side-nav-title side-nav-item">Navigation</li>
                     <li class="side-nav-item">
                         <a href="#" class="side-nav-link">
-                            <i class="uil-store"></i>
+                            <i class="uil-home-alt"></i>
                             <span> Device </span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -90,6 +90,26 @@
                         </ul>
                     </li>
                     <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
+                            <i class="uil-cog"></i>
+                            <span> Setting </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="side-nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="/setting/users">Users</a>
+                            </li>
+                            <li>
+                                <a href="/setting/branch">Branchs</a>
+                            </li>
+                            <li>
+                                <a href="/setting/mqtt">MQTT</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!-- <li class="side-nav-item">
                         <a href="/setting/mqtt" class="side-nav-link">
                             <i class="uil-calender"></i>
                             <span> Setting MQTT </span>
@@ -101,6 +121,12 @@
                             <span> Setting Users </span>
                         </a>
                     </li>
+                    <li class="side-nav-item">
+                        <a href="/setting/branch" class="side-nav-link">
+                            <i class="uil-calender"></i>
+                            <span> Setting Branch </span>
+                        </a>
+                    </li> -->
                     {{-- <li class="side-nav-item">
                         <a href="javascript: void(0);" class="side-nav-link">
                             <i class="uil-store"></i>

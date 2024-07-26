@@ -25,17 +25,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('users')->insert([
-            'name' => 'Main Admin',
-            'email' => 'Admin@gmail.com',
-            'password' => Hash::make('123456'),
-            'remember_token' => '',
-            'branch_id' => null,
-            'status' => 1,
-            'role' => 3,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
     }
 
     /**
